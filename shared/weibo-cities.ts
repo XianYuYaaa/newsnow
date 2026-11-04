@@ -12,7 +12,7 @@ export interface WeiboCity {
 
 export const weiboCities = cities as WeiboCity[]
 
-export const defaultWeiboCityCode = "800861100"
+export const defaultWeiboCityCode = "800863205"
 
 export const weiboCityGroups = weiboCities.reduce<Record<string, WeiboCity[]>>((acc, city) => {
   (acc[city.pinyin] ??= []).push(city)

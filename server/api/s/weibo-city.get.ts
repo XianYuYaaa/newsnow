@@ -1,9 +1,10 @@
 import type { SourceResponse } from "@shared/types"
+import { defaultWeiboCityCode } from "@shared/weibo-cities"
 import { fetchWeiboCityHot, getWeiboCity } from "../../utils/weibo-city"
 
 export default defineEventHandler(async (event): Promise<SourceResponse> => {
   const query = getQuery(event)
-  const code = typeof query.code === "string" && query.code ? query.code : "800861100"
+  const code = typeof query.code === "string" && query.code ? query.code : defaultWeiboCityCode
 
   if (!getWeiboCity(code)) {
     throw createError({
