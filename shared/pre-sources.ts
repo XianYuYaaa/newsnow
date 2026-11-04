@@ -40,6 +40,15 @@ export const originSources = {
     interval: Time.Realtime,
     home: "https://weibo.com",
   },
+  "weibo-city": {
+    name: "微博同城",
+    title: "同城热搜",
+    type: "hottest",
+    column: "china",
+    color: "red",
+    interval: Time.Fast,
+    home: "https://weibo.com",
+  },
   "zaobao": {
     name: "联合早报",
     interval: Time.Common,

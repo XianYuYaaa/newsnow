@@ -33,6 +33,15 @@
     "color": "red",
     "interval": 120000
   },
+  "weibo-city": {
+    "title": "同城热搜",
+    "name": "微博同城",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://weibo.com",
+    "color": "red",
+    "interval": 300000
+  },
   "zaobao": {
     "name": "联合早报",
     "type": "realtime",

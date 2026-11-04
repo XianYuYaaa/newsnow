@@ -1,4 +1,5 @@
 import type { NewsItem, SourceID, SourceResponse } from "@shared/types"
+import { defaultWeiboCityCode, weiboCityGroups } from "@shared/weibo-cities"
 import { useQuery } from "@tanstack/react-query"
 import { AnimatePresence, motion, useInView } from "framer-motion"
 import { useWindowSize } from "react-use"
@@ -52,13 +53,21 @@ export const CardWrapper = forwardRef<HTMLElement, ItemsProps>(({ id, isDragging
 
 function NewsCard({ id, setHandleRef }: NewsCardProps) {
   const { refresh } = useRefetch()
+  const isWeiboCity = id === "weibo-city"
+  const [cityCode, setCityCode] = useState(() => {
+    if (typeof localStorage === "undefined") return defaultWeiboCityCode
+    return localStorage.getItem("weibo-city-code") || defaultWeiboCityCode
+  })
   const { data, isFetching, isError } = useQuery({
-    queryKey: ["source", id],
+    queryKey: isWeiboCity ? ["source", id, cityCode] : ["source", id],
     queryFn: async ({ queryKey }) => {
       const id = queryKey[1] as SourceID
+      const code = queryKey[2] as string | undefined
       let url = `/s?id=${id}`
       const headers: Record<string, any> = {}
-      if (refetchSources.has(id)) {
+      if (isWeiboCity) {
+        url = `/s/weibo-city?code=${encodeURIComponent(code || cityCode)}`
+      } else if (refetchSources.has(id)) {
         url = `/s?id=${id}&latest`
         const jwt = safeParseString(localStorage.getItem("jwt"))
         if (jwt) headers.Authorization = `Bearer ${jwt}`
@@ -150,6 +159,33 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
           )}
         </div>
       </div>
+
+      {isWeiboCity && (
+        <div className="mx-2 mb-2">
+          <select
+            className={$(
+              "w-full text-sm rounded-md bg-base/60 px-2 py-1 outline-none cursor-pointer",
+              `color-${sources[id].color}`,
+            )}
+            value={cityCode}
+            onChange={(e) => {
+              setCityCode(e.target.value)
+              localStorage.setItem("weibo-city-code", e.target.value)
+            }}
+            title="切换城市"
+          >
+            {Object.entries(weiboCityGroups).map(([letter, cities]) => (
+              <optgroup key={letter} label={letter}>
+                {cities.map(city => (
+                  <option key={city.code} value={city.code}>
+                    {city.short || city.name}
+                  </option>
+                ))}
+              </optgroup>
+            ))}
+          </select>
+        </div>
+      )}
 
       <OverlayScrollbar
         className={$([
