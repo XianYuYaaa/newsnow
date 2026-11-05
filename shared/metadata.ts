@@ -38,7 +38,7 @@ const updatedSourceIds = [..._updatedSourceIds] as SourceID[]
 export const fixedColumnIds = ["focus", "hottest", "realtime", "updated"] as const satisfies Partial<ColumnID>[]
 export const hiddenColumns = Object.keys(columns).filter(id => !fixedColumnIds.includes(id as any)) as HiddenColumnID[]
 
-const hottestPriority: SourceID[] = ["weibo-city", "weibo", "douyin", "baidu", "tencent-hot", "toutiao"]
+const hottestPriority: SourceID[] = ["weibo-city", "weibo", "douyin", "douyin-city", "baidu", "tencent-hot", "toutiao"]
 const hottestColumnPriority: (HiddenColumnID | undefined)[] = ["china", "tech", "world", "finance", "sports"]
 
 function compareHottest(m: SourceID, n: SourceID) {

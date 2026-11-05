@@ -1,0 +1,252 @@
+[
+  {
+    "code": "110000",
+    "name": "北京",
+    "pinyin": "B"
+  },
+  {
+    "code": "320400",
+    "name": "常州",
+    "pinyin": "C"
+  },
+  {
+    "code": "510100",
+    "name": "成都",
+    "pinyin": "C"
+  },
+  {
+    "code": "500000",
+    "name": "重庆",
+    "pinyin": "C"
+  },
+  {
+    "code": "220100",
+    "name": "长春",
+    "pinyin": "C"
+  },
+  {
+    "code": "430100",
+    "name": "长沙",
+    "pinyin": "C"
+  },
+  {
+    "code": "210200",
+    "name": "大连",
+    "pinyin": "D"
+  },
+  {
+    "code": "441900",
+    "name": "东莞",
+    "pinyin": "D"
+  },
+  {
+    "code": "440600",
+    "name": "佛山",
+    "pinyin": "F"
+  },
+  {
+    "code": "350100",
+    "name": "福州",
+    "pinyin": "F"
+  },
+  {
+    "code": "440100",
+    "name": "广州",
+    "pinyin": "G"
+  },
+  {
+    "code": "520100",
+    "name": "贵阳",
+    "pinyin": "G"
+  },
+  {
+    "code": "230100",
+    "name": "哈尔滨",
+    "pinyin": "H"
+  },
+  {
+    "code": "460100",
+    "name": "海口",
+    "pinyin": "H"
+  },
+  {
+    "code": "330100",
+    "name": "杭州",
+    "pinyin": "H"
+  },
+  {
+    "code": "340100",
+    "name": "合肥",
+    "pinyin": "H"
+  },
+  {
+    "code": "441300",
+    "name": "惠州",
+    "pinyin": "H"
+  },
+  {
+    "code": "370100",
+    "name": "济南",
+    "pinyin": "J"
+  },
+  {
+    "code": "330400",
+    "name": "嘉兴",
+    "pinyin": "J"
+  },
+  {
+    "code": "330700",
+    "name": "金华",
+    "pinyin": "J"
+  },
+  {
+    "code": "530100",
+    "name": "昆明",
+    "pinyin": "K"
+  },
+  {
+    "code": "620100",
+    "name": "兰州",
+    "pinyin": "L"
+  },
+  {
+    "code": "410300",
+    "name": "洛阳",
+    "pinyin": "L"
+  },
+  {
+    "code": "360100",
+    "name": "南昌",
+    "pinyin": "N"
+  },
+  {
+    "code": "320100",
+    "name": "南京",
+    "pinyin": "N"
+  },
+  {
+    "code": "450100",
+    "name": "南宁",
+    "pinyin": "N"
+  },
+  {
+    "code": "320600",
+    "name": "南通",
+    "pinyin": "N"
+  },
+  {
+    "code": "330200",
+    "name": "宁波",
+    "pinyin": "N"
+  },
+  {
+    "code": "370200",
+    "name": "青岛",
+    "pinyin": "Q"
+  },
+  {
+    "code": "350500",
+    "name": "泉州",
+    "pinyin": "Q"
+  },
+  {
+    "code": "310000",
+    "name": "上海",
+    "pinyin": "S"
+  },
+  {
+    "code": "330600",
+    "name": "绍兴",
+    "pinyin": "S"
+  },
+  {
+    "code": "440300",
+    "name": "深圳",
+    "pinyin": "S"
+  },
+  {
+    "code": "210100",
+    "name": "沈阳",
+    "pinyin": "S"
+  },
+  {
+    "code": "130100",
+    "name": "石家庄",
+    "pinyin": "S"
+  },
+  {
+    "code": "320500",
+    "name": "苏州",
+    "pinyin": "S"
+  },
+  {
+    "code": "331000",
+    "name": "台州",
+    "pinyin": "T"
+  },
+  {
+    "code": "140100",
+    "name": "太原",
+    "pinyin": "T"
+  },
+  {
+    "code": "120000",
+    "name": "天津",
+    "pinyin": "T"
+  },
+  {
+    "code": "330300",
+    "name": "温州",
+    "pinyin": "W"
+  },
+  {
+    "code": "650100",
+    "name": "乌鲁木齐",
+    "pinyin": "W"
+  },
+  {
+    "code": "320200",
+    "name": "无锡",
+    "pinyin": "W"
+  },
+  {
+    "code": "420100",
+    "name": "武汉",
+    "pinyin": "W"
+  },
+  {
+    "code": "350200",
+    "name": "厦门",
+    "pinyin": "X"
+  },
+  {
+    "code": "610100",
+    "name": "西安",
+    "pinyin": "X"
+  },
+  {
+    "code": "320300",
+    "name": "徐州",
+    "pinyin": "X"
+  },
+  {
+    "code": "370600",
+    "name": "烟台",
+    "pinyin": "Y"
+  },
+  {
+    "code": "410100",
+    "name": "郑州",
+    "pinyin": "Z"
+  },
+  {
+    "code": "442000",
+    "name": "中山",
+    "pinyin": "Z"
+  },
+  {
+    "code": "440400",
+    "name": "珠海",
+    "pinyin": "Z"
+  }
+]

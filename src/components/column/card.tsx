@@ -1,4 +1,5 @@
 import type { NewsItem, SourceID, SourceResponse } from "@shared/types"
+import { defaultDouyinCityCode, douyinCityGroups } from "@shared/douyin-cities"
 import { defaultWeiboCityCode, weiboCityGroups } from "@shared/weibo-cities"
 import { useQuery } from "@tanstack/react-query"
 import { AnimatePresence, motion, useInView } from "framer-motion"
@@ -53,20 +54,25 @@ export const CardWrapper = forwardRef<HTMLElement, ItemsProps>(({ id, isDragging
 
 function NewsCard({ id, setHandleRef }: NewsCardProps) {
   const { refresh } = useRefetch()
-  const isWeiboCity = id === "weibo-city"
+  const cityConfig = id === "weibo-city"
+    ? { groups: weiboCityGroups, defaultCode: defaultWeiboCityCode, endpoint: "/s/weibo-city", storageKey: "weibo-city-code" }
+    : id === "douyin-city"
+      ? { groups: douyinCityGroups, defaultCode: defaultDouyinCityCode, endpoint: "/s/douyin-city", storageKey: "douyin-city-code" }
+      : null
   const [cityCode, setCityCode] = useState(() => {
-    if (typeof localStorage === "undefined") return defaultWeiboCityCode
-    return localStorage.getItem("weibo-city-code") || defaultWeiboCityCode
+    if (!cityConfig) return ""
+    if (typeof localStorage === "undefined") return cityConfig.defaultCode
+    return localStorage.getItem(cityConfig.storageKey) || cityConfig.defaultCode
   })
   const { data, isFetching, isError } = useQuery({
-    queryKey: isWeiboCity ? ["source", id, cityCode] : ["source", id],
+    queryKey: cityConfig ? ["source", id, cityCode] : ["source", id],
     queryFn: async ({ queryKey }) => {
       const id = queryKey[1] as SourceID
       const code = queryKey[2] as string | undefined
       let url = `/s?id=${id}`
       const headers: Record<string, any> = {}
-      if (isWeiboCity) {
-        url = `/s/weibo-city?code=${encodeURIComponent(code || cityCode)}`
+      if (cityConfig) {
+        url = `${cityConfig.endpoint}?code=${encodeURIComponent(code || cityCode)}`
       } else if (refetchSources.has(id)) {
         url = `/s?id=${id}&latest`
         const jwt = safeParseString(localStorage.getItem("jwt"))
@@ -160,7 +166,7 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
         </div>
       </div>
 
-      {isWeiboCity && (
+      {cityConfig && (
         <div className="mx-2 mb-2">
           <select
             className={$(
@@ -170,11 +176,11 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
             value={cityCode}
             onChange={(e) => {
               setCityCode(e.target.value)
-              localStorage.setItem("weibo-city-code", e.target.value)
+              localStorage.setItem(cityConfig.storageKey, e.target.value)
             }}
             title="切换城市"
           >
-            {Object.entries(weiboCityGroups).map(([letter, cities]) => (
+            {Object.entries(cityConfig.groups).map(([letter, cities]) => (
               <optgroup key={letter} label={letter}>
                 {cities.map(city => (
                   <option key={city.code} value={city.code}>

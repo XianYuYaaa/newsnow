@@ -124,6 +124,15 @@ export const originSources = {
     color: "gray",
     home: "https://www.douyin.com",
   },
+  "douyin-city": {
+    name: "抖音同城",
+    title: "同城热榜",
+    type: "hottest",
+    column: "china",
+    color: "gray",
+    interval: Time.Fast,
+    home: "https://www.douyin.com",
+  },
   "hupu": {
     name: "虎扑",
     home: "https://hupu.com",

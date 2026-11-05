@@ -152,6 +152,15 @@
     "color": "gray",
     "interval": 600000
   },
+  "douyin-city": {
+    "title": "同城热榜",
+    "name": "抖音同城",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://www.douyin.com",
+    "color": "gray",
+    "interval": 300000
+  },
   "hupu": {
     "title": "主干道热帖",
     "name": "虎扑",
